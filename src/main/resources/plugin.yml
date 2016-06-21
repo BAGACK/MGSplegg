@@ -1,6 +1,6 @@
 name: MGSplegg
 main: com.comze_instancelabs.mgsplegg.Main
-version: 1.1.3
+version: ${version}
 author: [InstanceLabs,mepeisen]
 softdepend: [Vault, MinigamesLib]
 depend: [MinigamesLib]
