@@ -9,6 +9,7 @@ import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.comze_instancelabs.minigamesapi.ArenaConfigStrings;
 import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 import com.comze_instancelabs.minigamesapi.PluginInstance;
 import com.comze_instancelabs.minigamesapi.commands.CommandHandler;
@@ -56,10 +57,10 @@ public class ICommandHandler extends CommandHandler {
 	public static ArrayList<Location> getAllAreaPoints(JavaPlugin plugin, String arena) {
 		FileConfiguration config = MinigamesAPI.getAPI().pinstances.get(plugin).getArenasConfig().getConfig();
 		ArrayList<Location> ret = new ArrayList<Location>();
-		if (!config.isSet("arenas." + arena + ".area")) {
+		if (!config.isSet(ArenaConfigStrings.ARENAS_PREFIX + arena + ".area")) {
 			return ret;
 		}
-		for (String point : config.getConfigurationSection("arenas." + arena + ".area.").getKeys(false)) {
+		for (String point : config.getConfigurationSection(ArenaConfigStrings.ARENAS_PREFIX + arena + ".area.").getKeys(false)) {
 			ret.add(Util.getComponentForArena(plugin, arena, "area." + point));
 		}
 		return ret;
