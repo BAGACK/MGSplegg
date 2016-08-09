@@ -1,5 +1,6 @@
 package com.comze_instancelabs.mgsplegg;
 
+import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 import com.comze_instancelabs.minigamesapi.config.ClassesConfig;
 
 public class IClassesConfig extends ClassesConfig {
@@ -15,7 +16,7 @@ public class IClassesConfig extends ClassesConfig {
     	this.getConfig().addDefault("config.kits.default.requires_money", false);
     	this.getConfig().addDefault("config.kits.default.requires_permission", false);
     	this.getConfig().addDefault("config.kits.default.money_amount", 100);
-    	this.getConfig().addDefault("config.kits.default.permission_node", "minigames.kits.default");
+    	this.getConfig().addDefault("config.kits.default.permission_node", MinigamesAPI.getAPI().getPermissionKitPrefix() + ".default");
     	
     	// iron
     	this.getConfig().addDefault("config.kits.iron.name", "iron");
@@ -24,7 +25,7 @@ public class IClassesConfig extends ClassesConfig {
     	this.getConfig().addDefault("config.kits.iron.requires_money", false);
     	this.getConfig().addDefault("config.kits.iron.requires_permission", false);
     	this.getConfig().addDefault("config.kits.iron.money_amount", 100);
-    	this.getConfig().addDefault("config.kits.iron.permission_node", "minigames.kits.iron");
+    	this.getConfig().addDefault("config.kits.iron.permission_node", MinigamesAPI.getAPI().getPermissionKitPrefix() + ".iron");
     	
     	// diamond
     	this.getConfig().addDefault("config.kits.diamond.name", "diamond");
@@ -33,7 +34,7 @@ public class IClassesConfig extends ClassesConfig {
     	this.getConfig().addDefault("config.kits.diamond.requires_money", false);
     	this.getConfig().addDefault("config.kits.diamond.requires_permission", false);
     	this.getConfig().addDefault("config.kits.diamond.money_amount", 100);
-    	this.getConfig().addDefault("config.kits.diamond.permission_node", "minigames.kits.diamond");
+    	this.getConfig().addDefault("config.kits.diamond.permission_node", MinigamesAPI.getAPI().getPermissionKitPrefix() + ".diamond");
 
     	this.getConfig().options().copyDefaults(true);
     	this.saveConfig();
