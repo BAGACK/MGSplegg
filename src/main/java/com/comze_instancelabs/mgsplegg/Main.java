@@ -122,7 +122,7 @@ public class Main extends JavaPlugin implements Listener {
 	}
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-		ic.handleArgs(this, "mgsplegg", "/" + cmd.getName(), sender, args);
+		ic.handleArgs(this, MinigamesAPI.getAPI().getPermissionGamePrefix("splegg"), "/" + cmd.getName(), sender, args);
 		return true;
 	}
 
