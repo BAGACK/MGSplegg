@@ -219,14 +219,10 @@ public class Main extends JavaPlugin implements Listener {
 									return;
 								}
 							}
-							try {
-								a.getSmartReset().addChanged(hit.getLocation().getBlock(), hit.getLocation().getBlock().getType().equals(Material.CHEST));
-								if (a.getBoundaries().containsLocWithoutY(hit.getLocation())) {
-									hit.setTypeId(0);
-									player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
-								}
-							} catch (Exception e) {
-								System.out.println(e.getMessage() + " Please update your MinigamesLib to 1.5!");
+							a.getSmartReset().addChanged(hit.getLocation().getBlock(), hit.getLocation().getBlock().getType().equals(Material.CHEST));
+							if (a.getBoundaries().containsLocWithoutY(hit.getLocation())) {
+								hit.setTypeId(0);
+								player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
 							}
 						}
 					}
