@@ -75,7 +75,7 @@ public class Main extends JavaPlugin implements Listener {
 		this.getConfig().addDefault("config.powerup_spawn_percentage", 10);
 		this.getConfig().addDefault("config.shoot_with_shovels", true);
 		this.getConfig().addDefault("config.shoot_eggs_instead_of_snowballs", true);
-		this.getConfig().addDefault("config.die_below_bedrock_level", false);
+		this.getConfig().addDefault("config.die_below_bedrock_level", 4);
 		this.getConfig().addDefault("config.hunger_when_not_breaking_blocks", false);
 		this.getConfig().addDefault("config.give_snowballs_when_breaking_blocks", true);
 		this.getConfig().addDefault("config.whitelist.enabled", false);
@@ -84,9 +84,16 @@ public class Main extends JavaPlugin implements Listener {
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
 
-		boolean die_below_zero = this.getConfig().getBoolean("config.die_below_bedrock_level");
-		if (die_below_zero) {
-			pli.getArenaListener().loseY = 100;
+		if (this.getConfig().isBoolean("config.die_below_bedrock_level"))
+		{
+			boolean die_below_zero = this.getConfig().getBoolean("config.die_below_bedrock_level");
+			if (die_below_zero) {
+				pli.getArenaListener().loseY = 100;
+			}
+		}
+		else
+		{
+			pli.getArenaListener().loseY = this.getConfig().getInt("config.die_below_bedrock_level");
 		}
 
 		allow_snowball_knockback = getConfig().getBoolean("config.allow_snowball_knockback");
