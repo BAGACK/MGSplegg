@@ -38,6 +38,7 @@ import com.comze_instancelabs.minigamesapi.Arena;
 import com.comze_instancelabs.minigamesapi.ArenaConfigStrings;
 import com.comze_instancelabs.minigamesapi.ArenaSetup;
 import com.comze_instancelabs.minigamesapi.ArenaState;
+import com.comze_instancelabs.minigamesapi.MinecraftVersionsType;
 import com.comze_instancelabs.minigamesapi.MinigamesAPI;
 import com.comze_instancelabs.minigamesapi.PluginInstance;
 import com.comze_instancelabs.minigamesapi.config.ArenasConfig;
@@ -229,7 +230,14 @@ public class Main extends JavaPlugin implements Listener {
 							a.getSmartReset().addChanged(hit.getLocation().getBlock(), hit.getLocation().getBlock().getType().equals(Material.CHEST));
 							if (a.getBoundaries().containsLocWithoutY(hit.getLocation())) {
 								hit.setTypeId(0);
-								player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
+								if (MinigamesAPI.SERVER_VERSION.isAtLeast(MinecraftVersionsType.V1_9))
+								{
+									player.playSound(player.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1F, 1F);
+								}
+								else
+								{
+									player.playSound(player.getLocation(), Sound.valueOf("CHICKEN_EGG_POP"), 1F, 1F);
+								}
 							}
 						}
 					}
