@@ -1,4 +1,4 @@
-MGSplegg [![Build Status](http://www.minigameslib.de/build.php?app=Splegg&major=1)](http://www.minigameslib.de/buildref.php?app=Splegg&major=1)
+MGSplegg [![Build Status](http://www.minigameslib.de/build.png?app=Splegg&major=1)](http://www.minigameslib.de/buildref.php?app=Splegg&major=1)
 =======
 
 Splegg game for spigot-minecraft using [MinigamesAPI](https://github.com/MysticCity/MinigamesAPI).
