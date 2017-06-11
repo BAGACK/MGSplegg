@@ -190,7 +190,7 @@ public class Main extends JavaPlugin implements Listener {
 					a.pp.add(event.getPlayer().getName());
 					event.getPlayer().setFoodLevel(20);
 				}
-				a.getSmartReset().addChanged(event.getBlock(), event.getBlock().getType().equals(Material.CHEST));
+				a.getSmartReset().addChanged(event.getBlock());
 				event.getBlock().setType(Material.AIR);
 			} else {
 				event.setCancelled(true);
@@ -227,7 +227,7 @@ public class Main extends JavaPlugin implements Listener {
 									return;
 								}
 							}
-							a.getSmartReset().addChanged(hit.getLocation().getBlock(), hit.getLocation().getBlock().getType().equals(Material.CHEST));
+							a.getSmartReset().addChanged(hit.getLocation().getBlock());
 							if (a.getBoundaries().containsLocWithoutY(hit.getLocation())) {
 								hit.setTypeId(0);
 								if (MinigamesAPI.SERVER_VERSION.isAtLeast(MinecraftVersionsType.V1_9))
