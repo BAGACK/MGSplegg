@@ -45,6 +45,7 @@ import com.comze_instancelabs.minigamesapi.config.ArenasConfig;
 import com.comze_instancelabs.minigamesapi.config.DefaultConfig;
 import com.comze_instancelabs.minigamesapi.config.MessagesConfig;
 import com.comze_instancelabs.minigamesapi.config.StatsConfig;
+import com.comze_instancelabs.minigamesapi.util.PlayerPickupItemHelper;
 import com.comze_instancelabs.minigamesapi.util.Util;
 import com.comze_instancelabs.minigamesapi.util.Validator;
 
@@ -84,6 +85,8 @@ public class Main extends JavaPlugin implements Listener {
 
 		this.getConfig().options().copyDefaults(true);
 		this.saveConfig();
+		
+		new PlayerPickupItemHelper(this, this::onPlayerPickupItem);
 
 		if (this.getConfig().isBoolean("config.die_below_bedrock_level"))
 		{
@@ -257,8 +260,7 @@ public class Main extends JavaPlugin implements Listener {
 		}
 	}
 
-	@EventHandler
-	public void onPlayerPickupItem(PlayerPickupItemEvent event) {
+	public void onPlayerPickupItem(PlayerPickupItemHelper.CustomPickupEvent event) {
 		Player p = event.getPlayer();
 		if (pli.global_players.containsKey(p.getName())) {
 			IArena a = (IArena) pli.global_players.get(p.getName());
